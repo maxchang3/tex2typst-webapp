@@ -10,7 +10,7 @@
     "orientation": "any",
     "icons": [
         {
-            "src": "https://qwinsi.github.io/tex2typst-webapp/favicon.ico",
+            "src": "https://qwinsi.github.io/tex2typst-webapp/favicon.png",
             "sizes": "32x32"
         }
     ]
