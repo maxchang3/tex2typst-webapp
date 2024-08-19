@@ -95,6 +95,7 @@
     .js-toc {
       position: fixed;
       padding: 1em;
+      max-width: 200px;
     }
 
     aside {
@@ -105,8 +106,8 @@
       background-color: #f0f0f0;
     }
 
-    /* hide <aside> on mobile */
-    @media (max-width: 1000px) {
+    /* hide <aside> on small screens */
+    @media (max-width: 1200px) {
       aside {
         display: none;
       }
@@ -558,6 +559,11 @@ ready(function() {
           <tr><td><code>\zeta</code></td><td><span class="render-m">\zeta</span></td><td><code>zeta</code></td></tr>
           </tbody>
   </table>
+
+  <h2 id="handling-unsupported">Handling macros unsupported by Typst</h2>
+  <p>
+    There is not always a Typst equivalent for every LaTeX macro. <a>This post</a> provides a list of those counterexamples and corresponding workarounds.
+  </p>
 </main>
 </div>
 </body>
