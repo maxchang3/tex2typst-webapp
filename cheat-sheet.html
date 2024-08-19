@@ -66,6 +66,14 @@
       display: none;
     }
 
+    .v-table.hide-preview tr:nth-child(2) {
+      display: none;
+    }
+
+    .v-table.hide-typst tr:nth-child(3) {
+      display: none;
+    }
+
     .toggle-panel {
       position: fixed;
       margin: 1em;
@@ -95,6 +103,13 @@
       padding: 1em;
       margin: 0.5em;
       background-color: #f0f0f0;
+    }
+
+    /* hide <aside> on mobile */
+    @media (max-width: 1000px) {
+      aside {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -158,8 +173,8 @@ ready(function() {
 </script>
 
   <nav style="display: flex; justify-content: space-between; padding: 0.8em;">
-    <a href="." target="_blank">Home</a>
-    <a href="https://github.com/qwinsi/tex2typst-webapp" target="_blank">Open-source</a>
+    <a href="." target="_blank">Homepage</a>
+    <a href="https://github.com/qwinsi/tex2typst-webapp" target="_blank">Source on Github</a>
   </nav>
 
   <h1>LaTeX-to-typst Cheat Sheet</h1>
@@ -185,6 +200,9 @@ ready(function() {
 
 
 <main class="js-toc-content">
+  <p>
+    (WIP: This page is currently under construction...)
+  </p>
   <h2 id="greek-letters">Greek Letters</h2>
   <!-- 
     latex: \alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \omicron \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega
@@ -267,12 +285,12 @@ ready(function() {
       <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
     </thead>
     <tbody>
-      <tr><td><code>\int</code></td><td>∫</td><td><code>integral</code></td></tr>
-      <tr><td><code>\oint</code></td><td>∮</td><td><code>integral.cont</code></td></tr>
-      <tr><td><code>\iint</code></td><td>∬</td><td><code>integral.double</code></td></tr>
-      <tr><td><code>\oiint</code></td><td>∯</td><td><code>integral.surf</code></td></tr>
-      <tr><td><code>\iiint</code></td><td>∭</td><td><code>integral.triple</code></td></tr>
-      <tr><td><code>\oiiint</code></td><td>∰</td><td><code>integral.vol</code></td></tr>
+      <tr><td><code>\int</code></td><td><span class="render-m">\int</span></td><td><code>integral</code></td></tr>
+      <tr><td><code>\oint</code></td><td><span class="render-m">\oint</span></td><td><code>integral.cont</code></td></tr>
+      <tr><td><code>\iint</code></td><td><span class="render-m">\iint</span></td><td><code>integral.double</code></td></tr>
+      <tr><td><code>\oiint</code></td><td><span class="render-m">\oiint</span></td><td><code>integral.surf</code></td></tr>
+      <tr><td><code>\iiint</code></td><td><span class="render-m">\iiint</span></td><td><code>integral.triple</code></td></tr>
+      <tr><td><code>\oiiint</code></td><td><span class="render-m">\oiiint</span></td><td><code>integral.vol</code></td></tr>
     </tbody>
   </table>
 
@@ -286,11 +304,32 @@ ready(function() {
       <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
     </thead>
     <tbody>
+      <tr><td><code>\boldsymbol{A}</code></td><td><span class="render-m">\boldsymbol{A}</span></td><td><code>bold(A)</code></td></tr>
       <tr><td><code>\mathbb{A}</code></td><td><span class="render-m">\mathbb{A}</span></td><td><code>bb(A)</code></td></tr>
+      <tr><td><code>\mathbf{A}</code></td><td><span class="render-m">\mathbf{A}</span></td><td><code>upright(bold(A))</code></td></tr>
       <tr><td><code>\mathcal{A}</code></td><td><span class="render-m">\mathcal{A}</span></td><td><code>cal(A)</code></td></tr>
       <tr><td><code>\mathfrak{A}</code></td><td><span class="render-m">\mathfrak{A}</span></td><td><code>frak(A)</code></td></tr>
       <tr><td><code>\mathsf{A}</code></td><td><span class="render-m">\mathsf{A}</span></td><td><code>sans(A)</code></td></tr>
       <tr><td><code>\mathtt{A}</code></td><td><span class="render-m">\mathtt{A}</span></td><td><code>mono(A)</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="set-and-elements">Set and Elements</h2>
+  <!--
+    latex: \in \subset \subseteq \supset \supseteq \varnothing
+    typst: in subset subset.eq supset supset.eq diameter
+  -->
+  <table class="h-table">
+    <thead>
+      <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>\in</code></td><td><span class="render-m">\in</span></td><td><code>in</code></td></tr>
+      <tr><td><code>\subset</code></td><td><span class="render-m">\subset</span></td><td><code>subset</code></td></tr>
+      <tr><td><code>\subseteq</code></td><td><span class="render-m">\subseteq</span></td><td><code>subset.eq</code></td></tr>
+      <tr><td><code>\supset</code></td><td><span class="render-m">\supset</span></td><td><code>supset</code></td></tr>
+      <tr><td><code>\supseteq</code></td><td><span class="render-m">\supseteq</span></td><td><code>supset.eq</code></td></tr>
+      <tr><td><code>\varnothing</code></td><td><span class="render-m">\varnothing</span></td><td><code>diameter</code></td></tr>
     </tbody>
   </table>
 
@@ -310,6 +349,215 @@ ready(function() {
     </tbody>
   </table>
 
+  <h2 id="misecllaneous-symbols">Miscellaneous Symbols</h2>
+  <table class="h-table">
+    <thead>
+      <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
+    </thead>
+    <tbody>
+          <tr><td><code>\Cap</code></td><td><span class="render-m">\Cap</span></td><td><code>sect.double</code></td></tr>
+          <tr><td><code>\Cup</code></td><td><span class="render-m">\Cup</span></td><td><code>union.double</code></td></tr>
+          <tr><td><code>\Delta</code></td><td><span class="render-m">\Delta</span></td><td><code>Delta</code></td></tr>
+          <tr><td><code>\Gamma</code></td><td><span class="render-m">\Gamma</span></td><td><code>Gamma</code></td></tr>
+          <tr><td><code>\Join</code></td><td><span class="render-m">\Join</span></td><td><code>join</code></td></tr>
+          <tr><td><code>\Lambda</code></td><td><span class="render-m">\Lambda</span></td><td><code>Lambda</code></td></tr>
+          <tr><td><code>\Longrightarrow</code></td><td><span class="render-m">\Longrightarrow</span></td><td><code>arrow.r.double.long</code></td></tr>
+          <tr><td><code>\Omega</code></td><td><span class="render-m">\Omega</span></td><td><code>Omega</code></td></tr>
+          <tr><td><code>\Phi</code></td><td><span class="render-m">\Phi</span></td><td><code>Phi</code></td></tr>
+          <tr><td><code>\Pi</code></td><td><span class="render-m">\Pi</span></td><td><code>Pi</code></td></tr>
+          <tr><td><code>\Psi</code></td><td><span class="render-m">\Psi</span></td><td><code>Psi</code></td></tr>
+          <tr><td><code>\Rightarrow</code></td><td><span class="render-m">\Rightarrow</span></td><td><code>arrow.double</code></td></tr>
+          <tr><td><code>\Sigma</code></td><td><span class="render-m">\Sigma</span></td><td><code>Sigma</code></td></tr>
+          <tr><td><code>\Theta</code></td><td><span class="render-m">\Theta</span></td><td><code>Theta</code></td></tr>
+          <tr><td><code>\aleph</code></td><td><span class="render-m">\aleph</span></td><td><code>alef</code></td></tr>
+          <tr><td><code>\alpha</code></td><td><span class="render-m">\alpha</span></td><td><code>alpha</code></td></tr>
+          <tr><td><code>\angle</code></td><td><span class="render-m">\angle</span></td><td><code>angle</code></td></tr>
+          <tr><td><code>\approx</code></td><td><span class="render-m">\approx</span></td><td><code>approx</code></td></tr>
+          <tr><td><code>\approxeq</code></td><td><span class="render-m">\approxeq</span></td><td><code>approx.eq</code></td></tr>
+          <tr><td><code>\ast</code></td><td><span class="render-m">\ast</span></td><td><code>ast</code></td></tr>
+          <tr><td><code>\beta</code></td><td><span class="render-m">\beta</span></td><td><code>beta</code></td></tr>
+          <tr><td><code>\bigcap</code></td><td><span class="render-m">\bigcap</span></td><td><code>sect.big</code></td></tr>
+          <tr><td><code>\bigcirc</code></td><td><span class="render-m">\bigcirc</span></td><td><code>circle.big</code></td></tr>
+          <tr><td><code>\bigcup</code></td><td><span class="render-m">\bigcup</span></td><td><code>union.big</code></td></tr>
+          <tr><td><code>\bigodot</code></td><td><span class="render-m">\bigodot</span></td><td><code>dot.circle.big</code></td></tr>
+          <tr><td><code>\bigoplus</code></td><td><span class="render-m">\bigoplus</span></td><td><code>xor.big</code></td></tr>
+          <tr><td><code>\bigotimes</code></td><td><span class="render-m">\bigotimes</span></td><td><code>times.circle.big</code></td></tr>
+          <tr><td><code>\bigsqcup</code></td><td><span class="render-m">\bigsqcup</span></td><td><code>union.sq.big</code></td></tr>
+          <tr><td><code>\bigtriangledown</code></td><td><span class="render-m">\bigtriangledown</span></td><td><code>triangle.b</code></td></tr>
+          <tr><td><code>\bigtriangleup</code></td><td><span class="render-m">\bigtriangleup</span></td><td><code>triangle.t</code></td></tr>
+          <tr><td><code>\biguplus</code></td><td><span class="render-m">\biguplus</span></td><td><code>union.plus.big</code></td></tr>
+          <tr><td><code>\bigvee</code></td><td><span class="render-m">\bigvee</span></td><td><code>or.big</code></td></tr>
+          <tr><td><code>\bigwedge</code></td><td><span class="render-m">\bigwedge</span></td><td><code>and.big</code></td></tr>
+          <tr><td><code>\bullet</code></td><td><span class="render-m">\bullet</span></td><td><code>bullet</code></td></tr>
+          <tr><td><code>\cap</code></td><td><span class="render-m">\cap</span></td><td><code>sect</code></td></tr>
+          <tr><td><code>\cdot</code></td><td><span class="render-m">\cdot</span></td><td><code>dot.op</code></td></tr>
+          <tr><td><code>\cdots</code></td><td><span class="render-m">\cdots</span></td><td><code>dots.c</code></td></tr>
+          <tr><td><code>\checkmark</code></td><td><span class="render-m">\checkmark</span></td><td><code>checkmark</code></td></tr>
+          <tr><td><code>\chi</code></td><td><span class="render-m">\chi</span></td><td><code>chi</code></td></tr>
+          <tr><td><code>\circ</code></td><td><span class="render-m">\circ</span></td><td><code>circle.small</code></td></tr>
+          <tr><td><code>\colon</code></td><td><span class="render-m">\colon</span></td><td><code>colon</code></td></tr>
+          <tr><td><code>\cong</code></td><td><span class="render-m">\cong</span></td><td><code>tilde.equiv</code></td></tr>
+          <tr><td><code>\coprod</code></td><td><span class="render-m">\coprod</span></td><td><code>product.co</code></td></tr>
+          <tr><td><code>\cup</code></td><td><span class="render-m">\cup</span></td><td><code>union</code></td></tr>
+          <tr><td><code>\curlyvee</code></td><td><span class="render-m">\curlyvee</span></td><td><code>or.curly</code></td></tr>
+          <tr><td><code>\curlywedge</code></td><td><span class="render-m">\curlywedge</span></td><td><code>and.curly</code></td></tr>
+          <tr><td><code>\dagger</code></td><td><span class="render-m">\dagger</span></td><td><code>dagger</code></td></tr>
+          <tr><td><code>\dashv</code></td><td><span class="render-m">\dashv</span></td><td><code>tack.l</code></td></tr>
+          <tr><td><code>\ddagger</code></td><td><span class="render-m">\ddagger</span></td><td><code>dagger.double</code></td></tr>
+          <tr><td><code>\delta</code></td><td><span class="render-m">\delta</span></td><td><code>delta</code></td></tr>
+          <tr><td><code>\ddots</code></td><td><span class="render-m">\ddots</span></td><td><code>dots.down</code></td></tr>
+          <tr><td><code>\diamond</code></td><td><span class="render-m">\diamond</span></td><td><code>diamond</code></td></tr>
+          <tr><td><code>\div</code></td><td><span class="render-m">\div</span></td><td><code>div</code></td></tr>
+          <tr><td><code>\divideontimes</code></td><td><span class="render-m">\divideontimes</span></td><td><code>times.div</code></td></tr>
+          <tr><td><code>\dotplus</code></td><td><span class="render-m">\dotplus</span></td><td><code>plus.dot</code></td></tr>
+          <tr><td><code>\downarrow</code></td><td><span class="render-m">\downarrow</span></td><td><code>arrow.b</code></td></tr>
+          <tr><td><code>\ell</code></td><td><span class="render-m">\ell</span></td><td><code>ell</code></td></tr>
+          <tr><td><code>\emptyset</code></td><td><span class="render-m">\emptyset</span></td><td><code>nothing</code></td></tr>
+          <tr><td><code>\epsilon</code></td><td><span class="render-m">\epsilon</span></td><td><code>epsilon.alt</code></td></tr>
+          <tr><td><code>\equiv</code></td><td><span class="render-m">\equiv</span></td><td><code>equiv</code></td></tr>
+          <tr><td><code>\eta</code></td><td><span class="render-m">\eta</span></td><td><code>eta</code></td></tr>
+          <tr><td><code>\exists</code></td><td><span class="render-m">\exists</span></td><td><code>exists</code></td></tr>
+          <tr><td><code>\forall</code></td><td><span class="render-m">\forall</span></td><td><code>forall</code></td></tr>
+          <tr><td><code>\gamma</code></td><td><span class="render-m">\gamma</span></td><td><code>gamma</code></td></tr>
+          <tr><td><code>\ge</code></td><td><span class="render-m">\ge</span></td><td><code>gt.eq</code></td></tr>
+          <tr><td><code>\geq</code></td><td><span class="render-m">\geq</span></td><td><code>gt.eq</code></td></tr>
+          <tr><td><code>\geqslant</code></td><td><span class="render-m">\geqslant</span></td><td><code>gt.eq.slant</code></td></tr>
+          <tr><td><code>\gg</code></td><td><span class="render-m">\gg</span></td><td><code>gt.double</code></td></tr>
+          <tr><td><code>\hbar</code></td><td><span class="render-m">\hbar</span></td><td><code>planck.reduce</code></td></tr>
+          <tr><td><code>\imath</code></td><td><span class="render-m">\imath</span></td><td><code>dotless.i</code></td></tr>
+          <tr><td><code>\iiint</code></td><td><span class="render-m">\iiint</span></td><td><code>integral.triple</code></td></tr>
+          <tr><td><code>\iint</code></td><td><span class="render-m">\iint</span></td><td><code>integral.double</code></td></tr>
+          <tr><td><code>\in</code></td><td><span class="render-m">\in</span></td><td><code>in</code></td></tr>
+          <tr><td><code>\infty</code></td><td><span class="render-m">\infty</span></td><td><code>infinity</code></td></tr>
+          <tr><td><code>\int</code></td><td><span class="render-m">\int</span></td><td><code>integral</code></td></tr>
+          <tr><td><code>\intercal</code></td><td><span class="render-m">\intercal</span></td><td><code>top</code></td></tr>
+          <tr><td><code>\iota</code></td><td><span class="render-m">\iota</span></td><td><code>iota</code></td></tr>
+          <tr><td><code>\jmath</code></td><td><span class="render-m">\jmath</span></td><td><code>dotless.j</code></td></tr>
+          <tr><td><code>\kappa</code></td><td><span class="render-m">\kappa</span></td><td><code>kappa</code></td></tr>
+          <tr><td><code>\lambda</code></td><td><span class="render-m">\lambda</span></td><td><code>lambda</code></td></tr>
+          <tr><td><code>\land</code></td><td><span class="render-m">\land</span></td><td><code>and</code></td></tr>
+          <tr><td><code>\langle</code></td><td><span class="render-m">\langle</span></td><td><code>angle.l</code></td></tr>
+          <tr><td><code>\lbrace</code></td><td><span class="render-m">\lbrace</span></td><td><code>brace.l</code></td></tr>
+          <tr><td><code>\lbrack</code></td><td><span class="render-m">\lbrack</span></td><td><code>bracket.l</code></td></tr>
+          <tr><td><code>\ldots</code></td><td><span class="render-m">\ldots</span></td><td><code>dots.l</code></td></tr>
+          <tr><td><code>\le</code></td><td><span class="render-m">\le</span></td><td><code>lt.eq</code></td></tr>
+          <tr><td><code>\leadsto</code></td><td><span class="render-m">\leadsto</span></td><td><code>arrow.squiggly</code></td></tr>
+          <tr><td><code>\leftarrow</code></td><td><span class="render-m">\leftarrow</span></td><td><code>arrow.l</code></td></tr>
+          <tr><td><code>\leftthreetimes</code></td><td><span class="render-m">\leftthreetimes</span></td><td><code>times.three.l</code></td></tr>
+          <tr><td><code>\leftrightarrow</code></td><td><span class="render-m">\leftrightarrow</span></td><td><code>arrow.l.r</code></td></tr>
+          <tr><td><code>\leq</code></td><td><span class="render-m">\leq</span></td><td><code>lt.eq</code></td></tr>
+          <tr><td><code>\leqslant</code></td><td><span class="render-m">\leqslant</span></td><td><code>lt.eq.slant</code></td></tr>
+          <tr><td><code>\lhd</code></td><td><span class="render-m">\lhd</span></td><td><code>triangle.l</code></td></tr>
+          <tr><td><code>\ll</code></td><td><span class="render-m">\ll</span></td><td><code>lt.double</code></td></tr>
+          <tr><td><code>\longmapsto</code></td><td><span class="render-m">\longmapsto</span></td><td><code>arrow.long.bar</code></td></tr>
+          <tr><td><code>\longrightarrow</code></td><td><span class="render-m">\longrightarrow</span></td><td><code>arrow.long</code></td></tr>
+          <tr><td><code>\ltimes</code></td><td><span class="render-m">\ltimes</span></td><td><code>times.l</code></td></tr>
+          <tr><td><code>\mapsto</code></td><td><span class="render-m">\mapsto</span></td><td><code>arrow.bar</code></td></tr>
+          <tr><td><code>\measuredangle</code></td><td><span class="render-m">\measuredangle</span></td><td><code>angle.arc</code></td></tr>
+          <tr><td><code>\mid</code></td><td><span class="render-m">\mid</span></td><td><code>divides</code></td></tr>
+          <tr><td><code>\models</code></td><td><span class="render-m">\models</span></td><td><code>models</code></td></tr>
+          <tr><td><code>\mp</code></td><td><span class="render-m">\mp</span></td><td><code>minus.plus</code></td></tr>
+          <tr><td><code>\mu</code></td><td><span class="render-m">\mu</span></td><td><code>mu</code></td></tr>
+          <tr><td><code>\nRightarrow</code></td><td><span class="render-m">\nRightarrow</span></td><td><code>arrow.double.not</code></td></tr>
+          <tr><td><code>\nabla</code></td><td><span class="render-m">\nabla</span></td><td><code>nabla</code></td></tr>
+          <tr><td><code>\ncong</code></td><td><span class="render-m">\ncong</span></td><td><code>tilde.nequiv</code></td></tr>
+          <tr><td><code>\ne</code></td><td><span class="render-m">\ne</span></td><td><code>eq.not</code></td></tr>
+          <tr><td><code>\neg</code></td><td><span class="render-m">\neg</span></td><td><code>not</code></td></tr>
+          <tr><td><code>\neq</code></td><td><span class="render-m">\neq</span></td><td><code>eq.not</code></td></tr>
+          <tr><td><code>\nexists</code></td><td><span class="render-m">\nexists</span></td><td><code>exists.not</code></td></tr>
+          <tr><td><code>\ngeq</code></td><td><span class="render-m">\ngeq</span></td><td><code>gt.eq.not</code></td></tr>
+          <tr><td><code>\ni</code></td><td><span class="render-m">\ni</span></td><td><code>in.rev</code></td></tr>
+          <tr><td><code>\nleftarrow</code></td><td><span class="render-m">\nleftarrow</span></td><td><code>arrow.l.not</code></td></tr>
+          <tr><td><code>\nleq</code></td><td><span class="render-m">\nleq</span></td><td><code>lt.eq.not</code></td></tr>
+          <tr><td><code>\nparallel</code></td><td><span class="render-m">\nparallel</span></td><td><code>parallel.not</code></td></tr>
+          <tr><td><code>\nmid</code></td><td><span class="render-m">\nmid</span></td><td><code>divides.not</code></td></tr>
+          <tr><td><code>\notin</code></td><td><span class="render-m">\notin</span></td><td><code>in.not</code></td></tr>
+          <tr><td><code>\nrightarrow</code></td><td><span class="render-m">\nrightarrow</span></td><td><code>arrow.not</code></td></tr>
+          <tr><td><code>\nsim</code></td><td><span class="render-m">\nsim</span></td><td><code>tilde.not</code></td></tr>
+          <tr><td><code>\nsubseteq</code></td><td><span class="render-m">\nsubseteq</span></td><td><code>subset.eq.not</code></td></tr>
+          <tr><td><code>\nu</code></td><td><span class="render-m">\nu</span></td><td><code>nu</code></td></tr>
+          <tr><td><code>\ntriangleleft</code></td><td><span class="render-m">\ntriangleleft</span></td><td><code>lt.tri.not</code></td></tr>
+          <tr><td><code>\ntriangleright</code></td><td><span class="render-m">\ntriangleright</span></td><td><code>gt.tri.not</code></td></tr>
+          <tr><td><code>\nwarrow</code></td><td><span class="render-m">\nwarrow</span></td><td><code>arrow.tl</code></td></tr>
+          <tr><td><code>\odot</code></td><td><span class="render-m">\odot</span></td><td><code>dot.circle</code></td></tr>
+          <tr><td><code>\oint</code></td><td><span class="render-m">\oint</span></td><td><code>integral.cont</code></td></tr>
+          <tr><td><code>\omega</code></td><td><span class="render-m">\omega</span></td><td><code>omega</code></td></tr>
+          <tr><td><code>\ominus</code></td><td><span class="render-m">\ominus</span></td><td><code>minus.circle</code></td></tr>
+          <tr><td><code>\oplus</code></td><td><span class="render-m">\oplus</span></td><td><code>xor</code></td></tr>
+          <tr><td><code>\otimes</code></td><td><span class="render-m">\otimes</span></td><td><code>times.circle</code></td></tr>
+          <tr><td><code>\parallel</code></td><td><span class="render-m">\parallel</span></td><td><code>parallel</code></td></tr>
+          <tr><td><code>\partial</code></td><td><span class="render-m">\partial</span></td><td><code>diff</code></td></tr>
+          <tr><td><code>\perp</code></td><td><span class="render-m">\perp</span></td><td><code>perp</code></td></tr>
+          <tr><td><code>\phi</code></td><td><span class="render-m">\phi</span></td><td><code>phi.alt</code></td></tr>
+          <tr><td><code>\pi</code></td><td><span class="render-m">\pi</span></td><td><code>pi</code></td></tr>
+          <tr><td><code>\pm</code></td><td><span class="render-m">\pm</span></td><td><code>plus.minus</code></td></tr>
+          <tr><td><code>\pounds</code></td><td><span class="render-m">\pounds</span></td><td><code>pound</code></td></tr>
+          <tr><td><code>\prec</code></td><td><span class="render-m">\prec</span></td><td><code>prec</code></td></tr>
+          <tr><td><code>\preceq</code></td><td><span class="render-m">\preceq</span></td><td><code>prec.eq</code></td></tr>
+          <tr><td><code>\prime</code></td><td><span class="render-m">\prime</span></td><td><code>prime</code></td></tr>
+          <tr><td><code>\prod</code></td><td><span class="render-m">\prod</span></td><td><code>product</code></td></tr>
+          <tr><td><code>\propto</code></td><td><span class="render-m">\propto</span></td><td><code>prop</code></td></tr>
+          <tr><td><code>\psi</code></td><td><span class="render-m">\psi</span></td><td><code>psi</code></td></tr>
+          <tr><td><code>\rangle</code></td><td><span class="render-m">\rangle</span></td><td><code>angle.r</code></td></tr>
+          <tr><td><code>\rbrace</code></td><td><span class="render-m">\rbrace</span></td><td><code>brace.r</code></td></tr>
+          <tr><td><code>\rbrack</code></td><td><span class="render-m">\rbrack</span></td><td><code>bracket.r</code></td></tr>
+          <tr><td><code>\rhd</code></td><td><span class="render-m">\rhd</span></td><td><code>triangle</code></td></tr>
+          <tr><td><code>\rho</code></td><td><span class="render-m">\rho</span></td><td><code>rho</code></td></tr>
+          <tr><td><code>\rightarrow</code></td><td><span class="render-m">\rightarrow</span></td><td><code>arrow.r</code></td></tr>
+          <tr><td><code>\rightthreetimes</code></td><td><span class="render-m">\rightthreetimes</span></td><td><code>times.three.r</code></td></tr>
+          <tr><td><code>\rtimes</code></td><td><span class="render-m">\rtimes</span></td><td><code>times.r</code></td></tr>
+          <tr><td><code>\setminus</code></td><td><span class="render-m">\setminus</span></td><td><code>without</code></td></tr>
+          <tr><td><code>\sigma</code></td><td><span class="render-m">\sigma</span></td><td><code>sigma</code></td></tr>
+          <tr><td><code>\sim</code></td><td><span class="render-m">\sim</span></td><td><code>tilde</code></td></tr>
+          <tr><td><code>\simeq</code></td><td><span class="render-m">\simeq</span></td><td><code>tilde.eq</code></td></tr>
+          <tr><td><code>\smallsetminus</code></td><td><span class="render-m">\smallsetminus</span></td><td><code>without</code></td></tr>
+          <tr><td><code>\spadesuit</code></td><td><span class="render-m">\spadesuit</span></td><td><code>suit.spade</code></td></tr>
+          <tr><td><code>\sqcap</code></td><td><span class="render-m">\sqcap</span></td><td><code>sect.sq</code></td></tr>
+          <tr><td><code>\sqcup</code></td><td><span class="render-m">\sqcup</span></td><td><code>union.sq</code></td></tr>
+          <tr><td><code>\sqsubseteq</code></td><td><span class="render-m">\sqsubseteq</span></td><td><code>subset.eq.sq</code></td></tr>
+          <tr><td><code>\sqsupseteq</code></td><td><span class="render-m">\sqsupseteq</span></td><td><code>supset.eq.sq</code></td></tr>
+          <tr><td><code>\star</code></td><td><span class="render-m">\star</span></td><td><code>star</code></td></tr>
+          <tr><td><code>\subset</code></td><td><span class="render-m">\subset</span></td><td><code>subset</code></td></tr>
+          <tr><td><code>\subseteq</code></td><td><span class="render-m">\subseteq</span></td><td><code>subset.eq</code></td></tr>
+          <tr><td><code>\subsetneq</code></td><td><span class="render-m">\subsetneq</span></td><td><code>subset.neq</code></td></tr>
+          <tr><td><code>\succ</code></td><td><span class="render-m">\succ</span></td><td><code>succ</code></td></tr>
+          <tr><td><code>\succeq</code></td><td><span class="render-m">\succeq</span></td><td><code>succ.eq</code></td></tr>
+          <tr><td><code>\sum</code></td><td><span class="render-m">\sum</span></td><td><code>sum</code></td></tr>
+          <tr><td><code>\supset</code></td><td><span class="render-m">\supset</span></td><td><code>supset</code></td></tr>
+          <tr><td><code>\supseteq</code></td><td><span class="render-m">\supseteq</span></td><td><code>supset.eq</code></td></tr>
+          <tr><td><code>\supsetneq</code></td><td><span class="render-m">\supsetneq</span></td><td><code>supset.neq</code></td></tr>
+          <tr><td><code>\swarrow</code></td><td><span class="render-m">\swarrow</span></td><td><code>arrow.bl</code></td></tr>
+          <tr><td><code>\tau</code></td><td><span class="render-m">\tau</span></td><td><code>tau</code></td></tr>
+          <tr><td><code>\theta</code></td><td><span class="render-m">\theta</span></td><td><code>theta</code></td></tr>
+          <tr><td><code>\times</code></td><td><span class="render-m">\times</span></td><td><code>times</code></td></tr>
+          <tr><td><code>\to</code></td><td><span class="render-m">\to</span></td><td><code>arrow.r</code></td></tr>
+          <tr><td><code>\top</code></td><td><span class="render-m">\top</span></td><td><code>top</code></td></tr>
+          <tr><td><code>\triangle</code></td><td><span class="render-m">\triangle</span></td><td><code>triangle.t</code></td></tr>
+          <tr><td><code>\triangledown</code></td><td><span class="render-m">\triangledown</span></td><td><code>triangle.b.small</code></td></tr>
+          <tr><td><code>\triangleleft</code></td><td><span class="render-m">\triangleleft</span></td><td><code>triangle.l.small</code></td></tr>
+          <tr><td><code>\triangleright</code></td><td><span class="render-m">\triangleright</span></td><td><code>triangle.r.small</code></td></tr>
+          <tr><td><code>\twoheadrightarrow</code></td><td><span class="render-m">\twoheadrightarrow</span></td><td><code>arrow.r.twohead</code></td></tr>
+          <tr><td><code>\uparrow</code></td><td><span class="render-m">\uparrow</span></td><td><code>arrow.t</code></td></tr>
+          <tr><td><code>\updownarrow</code></td><td><span class="render-m">\updownarrow</span></td><td><code>arrow.t.b</code></td></tr>
+          <tr><td><code>\upharpoonright</code></td><td><span class="render-m">\upharpoonright</span></td><td><code>harpoon.tr</code></td></tr>
+          <tr><td><code>\uplus</code></td><td><span class="render-m">\uplus</span></td><td><code>union.plus</code></td></tr>
+          <tr><td><code>\upsilon</code></td><td><span class="render-m">\upsilon</span></td><td><code>upsilon</code></td></tr>
+          <tr><td><code>\varepsilon</code></td><td><span class="render-m">\varepsilon</span></td><td><code>epsilon</code></td></tr>
+          <tr><td><code>\varphi</code></td><td><span class="render-m">\varphi</span></td><td><code>phi</code></td></tr>
+          <tr><td><code>\varpi</code></td><td><span class="render-m">\varpi</span></td><td><code>pi.alt</code></td></tr>
+          <tr><td><code>\varrho</code></td><td><span class="render-m">\varrho</span></td><td><code>rho.alt</code></td></tr>
+          <tr><td><code>\varsigma</code></td><td><span class="render-m">\varsigma</span></td><td><code>sigma.alt</code></td></tr>
+          <tr><td><code>\vartheta</code></td><td><span class="render-m">\vartheta</span></td><td><code>theta.alt</code></td></tr>
+          <tr><td><code>\vdash</code></td><td><span class="render-m">\vdash</span></td><td><code>tack.r</code></td></tr>
+          <tr><td><code>\vdots</code></td><td><span class="render-m">\vdots</span></td><td><code>dots.v</code></td></tr>
+          <tr><td><code>\vee</code></td><td><span class="render-m">\vee</span></td><td><code>or</code></td></tr>
+          <tr><td><code>\wedge</code></td><td><span class="render-m">\wedge</span></td><td><code>and</code></td></tr>
+          <tr><td><code>\wr</code></td><td><span class="render-m">\wr</span></td><td><code>wreath</code></td></tr>
+          <tr><td><code>\xi</code></td><td><span class="render-m">\xi</span></td><td><code>xi</code></td></tr>
+          <tr><td><code>\yen</code></td><td><span class="render-m">\yen</span></td><td><code>yen</code></td></tr>
+          <tr><td><code>\zeta</code></td><td><span class="render-m">\zeta</span></td><td><code>zeta</code></td></tr>
+          </tbody>
+  </table>
 </main>
 </div>
 </body>
