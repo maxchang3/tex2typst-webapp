@@ -208,14 +208,12 @@ ready(function() {
   <p>
     (WIP: This page is currently under construction...)
   </p>
-  <h2 id="greek-letters">Greek Letters</h2>
+  <h2 id="lowercase-greek-letters">Lowercase Greek Letters</h2>
   <!-- 
     latex: \alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \omicron \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega
     typst: alpha beta gamma delta epsilon.alt zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi.alt chi psi omega
     latex: \varepsilon \vartheta \varpi \varrho \varsigma \varphi
     typst: epsilon theta.alt pi.alt rho.alt sigma.alt phi
-    latex: \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega
-    typst: Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega
   -->
   <table class="h-table">
     <thead>
@@ -252,6 +250,19 @@ ready(function() {
       <tr><td><code>\varrho</code></td><td>ρ</td><td><code>rho.alt</code></td></tr>
       <tr><td><code>\varsigma</code></td><td>σ</td><td><code>sigma.alt</code></td></tr>
       <tr><td><code>\varphi</code></td><td>φ</td><td><code>phi</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="uppercase-greek-letters">Uppercase Greek Letters</h2>
+  <!-- 
+    latex: \Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega
+    typst: Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega
+  -->
+  <table class="h-table">
+    <thead>
+      <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
+    </thead>
+    <tbody>
       <tr><td><code>\Gamma</code></td><td>Γ</td><td><code>Gamma</code></td></tr>
       <tr><td><code>\Delta</code></td><td>Δ</td><td><code>Delta</code></td></tr>
       <tr><td><code>\Theta</code></td><td>Θ</td><td><code>Theta</code></td></tr>
@@ -265,6 +276,7 @@ ready(function() {
       <tr><td><code>\Omega</code></td><td>Ω</td><td><code>Omega</code></td></tr>
     </tbody>
   </table>
+
 
   <h2 id="integral">Integral</h2>
   <table class="v-table">
@@ -301,8 +313,8 @@ ready(function() {
 
   <h2 id="fonts">Fonts</h2>
   <!--
-    latex: \mathbb{A} \mathcal{A} \mathfrak{A} \mathsf{A} \mathtt{A}
-    typst: bb(A) cal(A) frak(A) sans(A) mono(A)
+    latex: \boldsymbol{A} \mathbb{A} \mathbf{A} \mathcal{A} \mathit{A} \mathfrak{A} \mathrm{A} \mathsf{A} \mathtt{A}
+    typst: bold(A) bb(A) upright(bold(A)) cal(A) italic(A) frak(A) upright(A) sans(A) mono(A)
   -->
   <table class="h-table">
     <thead>
@@ -313,10 +325,63 @@ ready(function() {
       <tr><td><code>\mathbb{A}</code></td><td><span class="render-m">\mathbb{A}</span></td><td><code>bb(A)</code></td></tr>
       <tr><td><code>\mathbf{A}</code></td><td><span class="render-m">\mathbf{A}</span></td><td><code>upright(bold(A))</code></td></tr>
       <tr><td><code>\mathcal{A}</code></td><td><span class="render-m">\mathcal{A}</span></td><td><code>cal(A)</code></td></tr>
+      <tr><td><code>\mathit{A}</code></td><td><span class="render-m">\mathit{A}</span></td><td><code>italic(A)</code></td></tr>
       <tr><td><code>\mathfrak{A}</code></td><td><span class="render-m">\mathfrak{A}</span></td><td><code>frak(A)</code></td></tr>
+      <tr><td><code>\mathrm{A}</code></td><td><span class="render-m">\mathrm{A}</span></td><td><code>upright(A)</code></td></tr>
       <tr><td><code>\mathsf{A}</code></td><td><span class="render-m">\mathsf{A}</span></td><td><code>sans(A)</code></td></tr>
       <tr><td><code>\mathtt{A}</code></td><td><span class="render-m">\mathtt{A}</span></td><td><code>mono(A)</code></td></tr>
     </tbody>
+  </table>
+
+  <p>
+    <code>\mathsrc</code>: There is no native Typst equivalent for the LaTeX macro <code>\mathsrc</code>. See <a href="impl-in-typst.html#mathscr" target="_blank">this</a> for a workaround.
+  </p>
+
+  <h2 id="arrows">Arrows</h2>
+  <table class="h-table">
+    <thead>
+      <tr><th>LaTeX</th><th>Preview</th><th>Typst</th></tr>
+    </thead>
+    <tbody>
+          <tr><td><code>\leftarrow</code></td><td><span class="render-m">\leftarrow</span></td><td><code>arrow.l</code></td></tr>
+          <tr><td><code>\gets</code></td><td><span class="render-m">\gets</span></td><td><code>arrow.l</code></td></tr>
+          <tr><td><code>\rightarrow</code></td><td><span class="render-m">\rightarrow</span></td><td><code>arrow.r</code></td></tr>
+          <tr><td><code>\to</code></td><td><span class="render-m">\to</span></td><td><code>arrow.r</code></td></tr>
+          <tr><td><code>\leftrightarrow</code></td><td><span class="render-m">\leftrightarrow</span></td><td><code>arrow.l.r</code></td></tr>
+          <tr><td><code>\Leftarrow</code></td><td><span class="render-m">\Leftarrow</span></td><td><code>arrow.l.double</code></td></tr>
+          <tr><td><code>\Rightarrow</code></td><td><span class="render-m">\Rightarrow</span></td><td><code>arrow.r.double</code></td></tr>
+          <tr><td><code>\Leftrightarrow</code></td><td><span class="render-m">\Leftrightarrow</span></td><td><code>arrow.l.r.double</code></td></tr>
+          <tr><td><code>\mapsto</code></td><td><span class="render-m">\mapsto</span></td><td><code>arrow.bar</code></td></tr>
+          <tr><td><code>\hookleftarrow</code></td><td><span class="render-m">\hookleftarrow</span></td><td><code>arrow.l.hook</code></td></tr>
+          <tr><td><code>\leftharpoonup</code></td><td><span class="render-m">\leftharpoonup</span></td><td><code>harpoon.lt</code></td></tr>
+          <tr><td><code>\leftharpoondown</code></td><td><span class="render-m">\leftharpoondown</span></td><td><code>harpoon.lb</code></td></tr>
+          <tr><td><code>\rightleftharpoons</code></td><td><span class="render-m">\rightleftharpoons</span></td><td><code>harpoons.rtlb</code></td></tr>
+          <tr><td><code>\longleftarrow</code></td><td><span class="render-m">\longleftarrow</span></td><td><code>arrow.l.long</code></td></tr>
+          <tr><td><code>\longrightarrow</code></td><td><span class="render-m">\longrightarrow</span></td><td><code>arrow.long</code></td></tr>
+          <tr><td><code>\longleftrightarrow</code></td><td><span class="render-m">\longleftrightarrow</span></td><td><code>arrow.l.r.long</code></td></tr>
+          <tr><td><code>\Longleftarrow</code></td><td><span class="render-m">\Longleftarrow</span></td><td><code>arrow.l.double.long</code></td></tr>
+          <tr><td><code>\Longrightarrow</code></td><td><span class="render-m">\Longrightarrow</span></td><td><code>arrow.r.double.long</code></td></tr>
+          <tr><td><code>\Longleftrightarrow</code></td><td><span class="render-m">\Longleftrightarrow</span></td><td><code>arrow.l.r.double.long</code></td></tr>
+          <tr><td><code>\longmapsto</code></td><td><span class="render-m">\longmapsto</span></td><td><code>arrow.bar.long</code></td></tr>
+          <tr><td><code>\hookrightarrow</code></td><td><span class="render-m">\hookrightarrow</span></td><td><code>arrow.r.hook</code></td></tr>
+          <tr><td><code>\rightharpoonup</code></td><td><span class="render-m">\rightharpoonup</span></td><td><code>harpoon.rt</code></td></tr>
+          <tr><td><code>\rightharpoondown</code></td><td><span class="render-m">\rightharpoondown</span></td><td><code>harpoon.rb</code></td></tr>
+          <tr><td><code>\iff</code></td><td><span class="render-m">\iff</span></td><td><code>arrow.l.r.double.long</code></td></tr>
+          <tr><td><code>\implies</code></td><td><span class="render-m">\implies</span></td><td><code>arrow.r.double.long</code></td></tr>
+          <tr><td><code>\uparrow</code></td><td><span class="render-m">\uparrow</span></td><td><code>arrow.t</code></td></tr>
+          <tr><td><code>\downarrow</code></td><td><span class="render-m">\downarrow</span></td><td><code>arrow.b</code></td></tr>
+          <tr><td><code>\updownarrow</code></td><td><span class="render-m">\updownarrow</span></td><td><code>arrow.t.b</code></td></tr>
+          <tr><td><code>\Uparrow</code></td><td><span class="render-m">\Uparrow</span></td><td><code>arrow.t.double</code></td></tr>
+          <tr><td><code>\Downarrow</code></td><td><span class="render-m">\Downarrow</span></td><td><code>arrow.b.double</code></td></tr>
+          <tr><td><code>\Updownarrow</code></td><td><span class="render-m">\Updownarrow</span></td><td><code>arrow.t.b.double</code></td></tr>
+          <tr><td><code>\nearrow</code></td><td><span class="render-m">\nearrow</span></td><td><code>arrow.tr</code></td></tr>
+          <tr><td><code>\searrow</code></td><td><span class="render-m">\searrow</span></td><td><code>arrow.br</code></td></tr>
+          <tr><td><code>\swarrow</code></td><td><span class="render-m">\swarrow</span></td><td><code>arrow.bl</code></td></tr>
+          <tr><td><code>\nwarrow</code></td><td><span class="render-m">\nwarrow</span></td><td><code>arrow.tl</code></td></tr>
+          <tr><td><code>\leadsto</code></td><td><span class="render-m">\leadsto</span></td><td><code>arrow.squiggly</code></td></tr>
+          <tr><td><code>\leftleftarrows</code></td><td><span class="render-m">\leftleftarrows</span></td><td><code>arrows.ll</code></td></tr>
+          <tr><td><code>\rightrightarrows</code></td><td><span class="render-m">\rightrightarrows</span></td><td><code>arrows.rr</code></td></tr>
+          </tbody>
   </table>
 
   <h2 id="set-and-elements">Set and Elements</h2>
@@ -338,7 +403,7 @@ ready(function() {
     </tbody>
   </table>
 
-  <h2 id="monetary-symbols">Monetary Symbols</h2>
+  <h2 id="non-mathematical-symbols">Non-mathematical Symbols</h2>
   <!-- 
     latex: \$ \pounds \yen
     typst: \$ pound yen
@@ -349,8 +414,11 @@ ready(function() {
     </thead>
     <tbody>
       <tr><td><code>\$</code></td><td>$</td><td><code>\$</code></tr>
-      <tr><td><code>\pounds</code></td><td>£</td><td>pound</td></tr>
-      <tr><td><code>\yen</code></td><td>¥</td><td>yen</td></tr>
+      <tr><td><code>\pounds</code></td><td>£</td><td><code>pound</code></td></tr>
+      <tr><td><code>\yen</code></td><td>¥</td><td><code>yen</code></td></tr>
+      <tr><td><code>\copyright</code></td><td>©</td><td><code>copyright</code></td></tr>
+      <tr><td><code>\S</code></td><td>§</td><td><code>section</code></td></tr>
+      <tr><td><code>\P</code></td><td>¶</td><td><code>pilcrow</code></td></tr>
     </tbody>
   </table>
 
